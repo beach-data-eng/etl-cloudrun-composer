@@ -9,3 +9,6 @@ steps:
 
 images:
 - 'us-central1-docker.pkg.dev/$PROJECT_ID/etl/load:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
