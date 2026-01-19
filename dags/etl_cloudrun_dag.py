@@ -17,7 +17,7 @@ default_env = {
 
 with DAG(
     dag_id="etl_cloudrun_full",
-    schedule_interval="*/5 * * * *",  # ทุก 5 นาที
+    schedule_interval="*/3 * * * *",  # ทุก 3 นาที
     start_date=days_ago(1),
     catchup=False,
     max_active_runs=1,   # กันรันซ้อน
