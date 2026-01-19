@@ -26,7 +26,7 @@ with DAG(
         task_id="extract",
         project_id=PROJECT_ID,
         region=REGION,
-        job_name="extract-job",
+        job_name="etl-extract",
         overrides={"container_overrides": [{"env": [
             {"name": k, "value": v} for k, v in default_env.items()
         ]}]}
@@ -36,7 +36,7 @@ with DAG(
         task_id="transform",
         project_id=PROJECT_ID,
         region=REGION,
-        job_name="transform-job",
+        job_name="etl-transform",
         overrides={"container_overrides": [{"env": [
             {"name": k, "value": v} for k, v in default_env.items()
         ]}]}
@@ -46,7 +46,7 @@ with DAG(
         task_id="load",
         project_id=PROJECT_ID,
         region=REGION,
-        job_name="load-job",
+        job_name="etl-load",
         overrides={"container_overrides": [{"env": [
             {"name": k, "value": v} for k, v in default_env.items()
         ]}]}
