@@ -17,9 +17,11 @@ default_env = {
 
 with DAG(
     dag_id="etl_cloudrun_full",
+    schedule_interval="*/5 * * * *",  # ทุก 5 นาที
     start_date=days_ago(1),
-    schedule_interval="* * * * *",
     catchup=False,
+    max_active_runs=1,   # กันรันซ้อน
+    concurrency=1,
 ) as dag:
 
     extract = CloudRunExecuteJobOperator(
