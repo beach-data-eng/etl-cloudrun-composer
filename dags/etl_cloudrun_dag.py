@@ -1,5 +1,4 @@
 from airflow import DAG
-# from airflow.providers.google.cloud.operators.cloud_run import CloudRunOperator
 from airflow.providers.google.cloud.operators.cloud_run import CloudRunExecuteJobOperator
 from datetime import timedelta
 from airflow.utils.dates import days_ago
@@ -23,7 +22,7 @@ with DAG(
     catchup=False,
 ) as dag:
 
-    extract = CloudRunOperator(
+    extract = CloudRunExecuteJobOperator(
         task_id="extract",
         project_id=PROJECT_ID,
         region=REGION,
@@ -33,7 +32,7 @@ with DAG(
         ]}]}
     )
 
-    transform = CloudRunOperator(
+    transform = CloudRunExecuteJobOperator(
         task_id="transform",
         project_id=PROJECT_ID,
         region=REGION,
@@ -43,7 +42,7 @@ with DAG(
         ]}]}
     )
 
-    load = CloudRunOperator(
+    load = CloudRunExecuteJobOperator(
         task_id="load",
         project_id=PROJECT_ID,
         region=REGION,
