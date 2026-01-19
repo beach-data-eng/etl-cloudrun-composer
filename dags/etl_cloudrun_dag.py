@@ -1,5 +1,6 @@
 from airflow import DAG
-from airflow.providers.google.cloud.operators.cloud_run import CloudRunOperator
+# from airflow.providers.google.cloud.operators.cloud_run import CloudRunOperator
+from airflow.providers.google.cloud.operators.cloud_run import CloudRunExecuteJobOperator
 from datetime import timedelta
 from airflow.utils.dates import days_ago
 
